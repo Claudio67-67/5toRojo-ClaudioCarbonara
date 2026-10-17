@@ -186,3 +186,69 @@ Foto
 <img width="1280" height="960" alt="d3a51a99-4d2a-44c7-b715-43c80c5a7718" src="https://github.com/user-attachments/assets/c827a9be-f3fc-40ad-b6be-c716cc5bd99d" />
 
 
+Actividad 4 pensamiento computacional 
+Proyecto: Indicador de disponibilidad de un espacio
+ 
+1. ¿Cuál es el problema?
+ 
+A veces las personas no saben si una salón para estudiar está ocupado o disponible, lo que puede causar interrupciones.
+ 
+2. ¿Quién se beneficiaría de la solución?
+ 
+Los estudiantes y profesores que utilizan espacios para estudiar o trabajar.
+ 
+3. ¿Cómo ayudará el prototipo?
+ 
+Mediante un interruptor que permite señalar manualmente si el espacio está ocupado o disponible. El Arduino recibirá esa información y encenderá una luz roja cuando esté ocupado o una verde cuando esté disponible.
+
+
+ 
+1 (Arduino Uno R3)
+
+
+1
+// C++ code
+2
+//
+3
+int ledRojo = 8;
+4
+int ledVerde = 9;
+5
+int interruptor = 2;
+6
+​
+7
+void setup() {
+8
+ pinMode(ledRojo, OUTPUT);
+9
+ pinMode(ledVerde, OUTPUT);
+10
+ pinMode(interruptor, INPUT_PULLUP);
+11
+}
+12
+​
+13
+void loop() {
+14
+ int estado = digitalRead(interruptor);
+15
+​
+16
+ if (estado == LOW) {
+17
+   digitalWrite(ledRojo, HIGH);
+18
+   digitalWrite(ledVerde, LOW);
+19
+ } else {
+20
+   digitalWrite(ledRojo, LOW);
+21
+   digitalWrite(ledVerde, HIGH);
+22
+ }
+23
+}
